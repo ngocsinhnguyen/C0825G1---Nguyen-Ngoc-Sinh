@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bàn cờ vua </title>
+    <style>
+        .chessboard {
+            display: grid;
+            grid-template-columns: 40px repeat(8, 60px) 40px;
+            grid-template-rows: 40px repeat(8, 60px) 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .label {
+            background: orange;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .square {
+            width: 60px;
+            height: 60px;
+        }
+
+        .square {
+            background: white;
+        }
+        .row1:nth-child(even),
+        .row2:nth-child(odd),
+        .row3:nth-child(even),
+        .row4:nth-child(odd),
+        .row5:nth-child(even),
+        .row6:nth-child(odd),
+        .row7:nth-child(even),
+        .row8:nth-child(odd) {
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<div class="chessboard">
+    <div class="label"></div>
+    <div class="label">1</div>
+    <div class="label">2</div>
+    <div class="label">3</div>
+    <div class="label">4</div>
+    <div class="label">5</div>
+    <div class="label">6</div>
+    <div class="label">7</div>
+    <div class="label">8</div>
+    <div class="label"></div>
+
+    <div class="label">A</div>
+    <div class="square row1"></div><div class="square row1"></div><div class="square row1"></div><div class="square row1"></div>
+    <div class="square row1"></div><div class="square row1"></div><div class="square row1"></div><div class="square row1"></div>
+    <div class="label">A</div>
+
+    <div class="label">B</div>
+    <div class="square row2"></div><div class="square row2"></div><div class="square row2"></div><div class="square row2"></div>
+    <div class="square row2"></div><div class="square row2"></div><div class="square row2"></div><div class="square row2"></div>
+    <div class="label">B</div>
+
+    <div class="label">C</div>
+    <div class="square row3"></div><div class="square row3"></div><div class="square row3"></div><div class="square row3"></div>
+    <div class="square row3"></div><div class="square row3"></div><div class="square row3"></div><div class="square row3"></div>
+    <div class="label">C</div>
+
+    <div class="label">D</div>
+    <div class="square row4"></div><div class="square row4"></div><div class="square row4"></div><div class="square row4"></div>
+    <div class="square row4"></div><div class="square row4"></div><div class="square row4"></div><div class="square row4"></div>
+    <div class="label">D</div>
+
+    <div class="label">E</div>
+    <div class="square row5"></div><div class="square row5"></div><div class="square row5"></div><div class="square row5"></div>
+    <div class="square row5"></div><div class="square row5"></div><div class="square row5"></div><div class="square row5"></div>
+    <div class="label"></div>
+
+    <div class="label">F</div>
+    <div class="square row6"></div><div class="square row6"></div><div class="square row6"></div><div class="square row6"></div>
+    <div class="square row6"></div><div class="square row6"></div><div class="square row6"></div><div class="square row6"></div>
+    <div class="label">F</div>
+
+    <div class="label">G</div>
+    <div class="square row7"></div><div class="square row7"></div><div class="square row7"></div><div class="square row7"></div>
+    <div class="square row7"></div><div class="square row7"></div><div class="square row7"></div><div class="square row7"></div>
+    <div class="label">G</div>
+
+    <div class="label">H</div>
+    <div class="square row8"></div><div class="square row8"></div><div class="square row8"></div><div class="square row8"></div>
+    <div class="square row8"></div><div class="square row8"></div><div class="square row8"></div><div class="square row8"></div>
+    <div class="label">H</div>
+
+    <div class="label"></div>
+    <div class="label">1</div><div class="label">2</div><div class="label">3</div>
+    <div class="label">4</div><div class="label">5</div><div class="label">6</div>
+    <div class="label">7</div><div class="label">8</div>
+    <div class="label"></div>
+</div>
+</body>
+</html>
