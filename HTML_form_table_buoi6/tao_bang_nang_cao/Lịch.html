@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch Tháng 10</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 700px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid gray;
+            width: 100px;
+            height: 70px;
+            position: relative;
+        }
+        th {
+            background: orange;
+            color: white;
+            height: 50px;
+        }
+        th:first-child { background: red; }
+        th:last-child { background: blue; }
+
+        .sun { color: red; }
+        .sat { color: blue; }
+
+        .day {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .lunar {
+            font-size: 11px;
+            color: gray;
+            vertical-align: sub;
+        }
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+        tr:nth-child(2) td {
+            border: none;
+            height: 30px;
+            font-weight: normal;
+            color: black;
+        }
+
+        .weekdays .sun {
+            color: red;
+        }
+
+        .weekdays .sat {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h2>Tháng 10 - October</h2>
+
+<table>
+    <tr>
+        <th>Chủ Nhật<br></th>
+        <th>Thứ Hai<br></th>
+        <th>Thứ Ba<br></th>
+        <th>Thứ Tư<br></th>
+        <th>Thứ Năm<br></th>
+        <th>Thứ Sáu <br></th>
+        <th>Thứ Bảy<br></th>
+    </tr>
+    <tr class="weekdays">
+        <td class="sun">Sun</td>
+        <td>Mon</td>
+        <td>Tue</td>
+        <td>Wed</td>
+        <td>Thu</td>
+        <td>Fri</td>
+        <td class="sat">Sat</td>
+    </tr>
+
+    <tr>
+        <td></td><td></td><td></td><td></td>
+        <td><div class="cell"><span class="day">1</span><span class="lunar">13</span></div></td>
+        <td><div class="cell"><span class="day">2</span><span class="lunar">14</span></div></td>
+        <td class="sat"><div class="cell"><span class="day">3</span><span class="lunar">15</span></div></td>
+    </tr>
+    <tr>
+        <td class="sun"><div class="cell"><span class="day">4</span><span class="lunar">16</span></div></td>
+        <td><div class="cell"><span class="day">5</span><span class="lunar">17</span></div></td>
+        <td><div class="cell"><span class="day">6</span><span class="lunar">18</span></div></td>
+        <td><div class="cell"><span class="day">7</span><span class="lunar">19</span></div></td>
+        <td><div class="cell"><span class="day">8</span><span class="lunar">20</span></div></td>
+        <td><div class="cell"><span class="day">9</span><span class="lunar">21</span></div></td>
+        <td class="sat"><div class="cell"><span class="day">10</span><span class="lunar">22</span></div></td>
+    </tr>
+    <tr>
+        <td class="sun"><div class="cell"><span class="day">11</span><span class="lunar">23</span></div></td>
+        <td><div class="cell"><span class="day">12</span><span class="lunar">24</span></div></td>
+        <td><div class="cell"><span class="day">13</span><span class="lunar">25</span></div></td>
+        <td><div class="cell"><span class="day">14</span><span class="lunar">26</span></div></td>
+        <td><div class="cell"><span class="day">15</span><span class="lunar">27</span></div></td>
+        <td><div class="cell"><span class="day">16</span><span class="lunar">28</span></div></td>
+        <td class="sat"><div class="cell"><span class="day">17</span><span class="lunar">29</span></div></td>
+    </tr>
+    <tr>
+        <td class="sun"><div class="cell"><span class="day">18</span><span class="lunar">1.9</span></div></td>
+        <td><div class="cell"><span class="day">19</span><span class="lunar">2</span></div></td>
+        <td><div class="cell"><span class="day">20</span><span class="lunar">3</span></div></td>
+        <td><div class="cell"><span class="day">21</span><span class="lunar">4</span></div></td>
+        <td><div class="cell"><span class="day">22</span><span class="lunar">5</span></div></td>
+        <td><div class="cell"><span class="day">23</span><span class="lunar">6</span></div></td>
+        <td class="sat"><div class="cell"><span class="day">24</span><span class="lunar">7</span></div></td>
+    </tr>
+    <tr>
+        <td class="sun"><div class="cell"><span class="day">25</span><span class="lunar">8</span></div></td>
+        <td><div class="cell"><span class="day">26</span><span class="lunar">9</span></div></td>
+        <td><div class="cell"><span class="day">27</span><span class="lunar">10</span></div></td>
+        <td><div class="cell"><span class="day">28</span><span class="lunar">11</span></div></td>
+        <td><div class="cell"><span class="day">29</span><span class="lunar">12</span></div></td>
+        <td><div class="cell"><span class="day">30</span><span class="lunar">13</span></div></td>
+        <td class="sat"><div class="cell"><span class="day">31</span><span class="lunar">14</span></div></td>
+    </tr>
+</table>
+</body>
+</html>
