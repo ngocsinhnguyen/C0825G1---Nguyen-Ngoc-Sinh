@@ -73,27 +73,32 @@
 <p id="result">Result:</p>
 
 <script>
+
+    const isPositiveInteger = n => Number.isInteger(n) && n > 0;
     function convertCurrency() {
-        let amount = document.getElementById("amount").value;
+        let amount = Number(document.getElementById("amount").value);
         let from = document.getElementById("fromCurrency").value;
         let to = document.getElementById("toCurrency").value;
 
+        if (!isPositiveInteger(amount)) {
+            document.getElementById("result").innerHTML =
+                "Không thể thực hiện. Vui lòng thực hiện lại";
+            return;
+        }
         const rates = {
             "USD": 1,
             "VND": 26000,
         };
+        let result = (amount / rates[from]) * rates[to];
+        let formatted;
+        if (Number.isInteger(result)) {
+            formatted = result; // chỉ hiển thị phần nguyên
+        } else {
+            formatted = result.toFixed(15);
+        }
 
-    let result = (amount / rates[from]) * rates[to];
-
-    let formatted;
-    if (Number.isInteger(result)) {
-        formatted = result; // chỉ hiển thị phần nguyêns
-    } else {
-        formatted = result.toFixed(15);
-    }
-
-    document.getElementById("result").innerHTML =
-        "Result: " + formatted + " " + to;
+        document.getElementById("result").innerHTML =
+            "Result: " + formatted + " " + to;
     }
 </script>
 </body>
