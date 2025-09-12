@@ -22,6 +22,7 @@
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
+            color: blue;
         }
     </style>
 </head>
@@ -42,28 +43,41 @@
     function getValues() {
         let n1 = parseFloat(document.getElementById("num1").value);
         let n2 = parseFloat(document.getElementById("num2").value);
+
+        if (isNaN(n1) || isNaN(n2)) {
+            document.getElementById("result").innerText = "Please enter number ";
+            return null;
+        }
         return [n1, n2];
     }
 
     function addition() {
-        let [n1, n2] = getValues();
+        let values = getValues();
+        if (!values) return;
+        let [n1, n2] = values;
         document.getElementById("result").innerText = "Result Addition : " + (n1 + n2);
     }
 
     function subtraction() {
-        let [n1, n2] = getValues();
+        let values = getValues();
+        if (!values) return;
+        let [n1, n2] = values;
         document.getElementById("result").innerText = "Result Subtraction : " + (n1 - n2);
     }
 
     function multiplication() {
-        let [n1, n2] = getValues();
+        let values = getValues();
+        if (!values) return;
+        let [n1, n2] = values;
         document.getElementById("result").innerText = "Result Multiplication : " + (n1 * n2);
     }
 
     function division() {
-        let [n1, n2] = getValues();
+        let values = getValues();
+        if (!values) return;
+        let [n1, n2] = values;
         if (n2 === 0) {
-            document.getElementById("result").innerText = "Cannot divide by zero!";
+            document.getElementById("result").innerText = " Cannot divide by zero";
         } else {
             document.getElementById("result").innerText = "Result Division : " + (n1 / n2);
         }
@@ -71,4 +85,3 @@
 </script>
 </body>
 </html>
-
