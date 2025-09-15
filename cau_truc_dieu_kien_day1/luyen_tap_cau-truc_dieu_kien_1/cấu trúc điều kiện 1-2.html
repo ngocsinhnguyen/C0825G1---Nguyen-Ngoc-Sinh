@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra lớp 10</title>
+</head>
+
+<body>
+<div class="container">
+    <h2>Kiểm tra điều kiện vào lớp 10</h2>
+    <input type="number" id="age" placeholder="Nhập tuổi học sinh">
+    <br><br>
+    <button onclick="Age()">Kiểm tra</button>
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    function Age() {s
+        let age = parseInt(document.getElementById("age").value);
+        let result = "";
+
+        if (isNaN(age) || age <0 ) {
+            result = "Vui lòng nhập tuổi";
+        } else if (age >= 15) {
+            result = "Học sinh đủ điều kiện vào lớp 10 ";
+        } else {
+            result = "Học sinh KHÔNG đủ điều kiện vào lớp 10 ";
+        }
+
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>

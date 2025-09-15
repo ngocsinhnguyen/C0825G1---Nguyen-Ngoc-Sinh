@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chia hết</title>
+
+</head>
+<body>
+<div class="container">
+    <h2>Kiểm tra chia hết</h2>
+    <input type="number" id="a" placeholder="Nhập số a">
+    <input type="number" id="b" placeholder="Nhập số b">
+    <br><br>
+    <button onclick="checkDivisible()">Kiểm tra</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function checkDivisible() {
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        let result = "";
+
+        if (isNaN(a) || isNaN(b)) {
+            result = "Vui lòng nhập cả hai số";
+        } else if (b === 0) {
+            result = "Không thể chia cho 0";
+        } else {
+            if (a % b === 0) {
+                result = a + " chia hết cho " + b ;
+            } else {
+                result = a + " không chia hết cho " + b ;
+            }
+        }
+
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>

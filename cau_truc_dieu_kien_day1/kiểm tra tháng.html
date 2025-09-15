@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        input {
+            padding: 6px;
+            width: 60px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            padding: 6px 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #222;
+        }
+        .desc {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+<h2>Kiểm tra số ngày trong tháng</h2>
+
+
+<div class="form-group">
+    <input type="number" id="month" min="1" max="12" placeholder="Tháng">
+    <button onclick="Days()">Tính số ngày</button>
+</div>
+<div id="result" class="result"></div>
+
+
+<script>
+    function Days() {
+        let month = parseInt(document.getElementById("month").value);
+        let result = "";
+
+        if (isNaN(month) || month < 1 || month > 12) {
+            result = "Vui lòng nhập tháng từ 1 đến 12.";
+        } else {
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    result = "Tháng " + month + " có 31 ngày";
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    result = "Tháng " + month + " có 30 ngày";
+                    break;
+                case 2:
+                    result = "Tháng 2 có 28 hoặc 29 ngày";
+                    break;
+            }
+        }
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>

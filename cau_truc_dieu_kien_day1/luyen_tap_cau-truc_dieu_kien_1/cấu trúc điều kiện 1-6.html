@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính hoa hồng</title>
+</head>
+<body>
+<h2>Tính hoa hồng theo doanh số</h2>
+
+<label>Nhập doanh số bán hàng (VNĐ): </label>
+<input type="number" id="sales" placeholder="Ví dụ: 10000000"><br><br>
+
+<button onclick="calculateCommission()">Tính hoa hồng</button>
+
+<p id="result"></p>
+
+<script>
+    function calculateCommission() {
+        let sales = parseFloat(document.getElementById("sales").value);
+
+        if (isNaN(sales) || sales < 0) {
+            document.getElementById("result").innerText = "Vui lòng nhập doanh số hợp lệ";
+            return;
+        }
+        /* 50000000:2%
+        200000000:5%
+        500000000:10%
+        >500000000:15%*/
+
+        let rate;
+        if (sales < 50000000) {
+            rate = 0.02;
+        } else if (sales < 200000000) {
+            rate = 0.05;
+        } else if (sales < 500000000) {
+            rate = 0.10;
+        } else {
+            rate = 0.15;
+        }
+
+        let commission = sales * rate;
+
+        document.getElementById("result").innerText =
+            "Doanh số: " + sales.toLocaleString() + " VNĐ\n" +
+            "Hoa hồng: " + commission.toLocaleString() + " VNĐ (" + (rate*100) + "%)";
+    }
+</script>
+</body>
+</html>
