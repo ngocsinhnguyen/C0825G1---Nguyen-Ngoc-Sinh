@@ -22,11 +22,11 @@
 
 <script>
     function findMax() {
-        let a = parseInt(document.getElementById("a").value);
-        let b = parseInt(document.getElementById("b").value);
-        let c = parseInt(document.getElementById("c").value);
+        let a = Number(document.getElementById("a").value);
+        let b = Number(document.getElementById("b").value);
+        let c = Number(document.getElementById("c").value);
 
-        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        if (isNaN(a) || isNaN(b) || isNaN(c) || !Number.isInteger(a)|| !Number.isInteger(b) || !Number.isInteger(c)) {
             document.getElementById("result").innerText = "Vui lòng nhập đủ cả ba số";
         } else {
             let max = a;

@@ -60,10 +60,10 @@
 
 <script>
     function Days() {
-        let month = parseInt(document.getElementById("month").value);
+        let month = Number(document.getElementById("month").value);
         let result = "";
 
-        if (isNaN(month) || month < 1 || month > 12) {
+        if (isNaN(month) ||!Number.isInteger(month)|| month < 1 || month > 12) {
             result = "Vui lòng nhập tháng từ 1 đến 12.";
         } else {
             switch (month) {
