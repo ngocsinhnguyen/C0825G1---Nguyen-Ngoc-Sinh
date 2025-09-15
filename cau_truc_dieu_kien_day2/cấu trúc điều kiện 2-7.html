@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<h2>Giải phương trình bậc 2: ax² + bx + c = 0</h2>
+
+<label>Nhập a: </label>
+<input type="number" id="a" placeholder="Nhập hệ số a"><br><br>
+
+<label>Nhập b: </label>
+<input type="number" id="b" placeholder="Nhập hệ số b"><br><br>
+
+<label>Nhập c: </label>
+<input type="number" id="c" placeholder="Nhập hệ số c"><br><br>
+
+<button onclick="solveQuadratic()">Giải phương trình</button>
+
+<p id="result"></p>
+
+<script>
+    function solveQuadratic() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let c = parseFloat(document.getElementById("c").value);
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            document.getElementById("result").innerText = "Vui lòng nhập đầy đủ a, b, c.";
+            return;
+        }
+
+        let result = "";
+
+        if (a === 0) {
+            // Trường hợp bậc 1: bx + c = 0
+            if (b === 0) {
+                result = (c === 0) ? "Phương trình có vô số nghiệm." : "Phương trình vô nghiệm.";
+            } else {
+                result = "Phương trình bậc 1 có nghiệm: x = " + (-c / b);
+            }
+        } else {
+            let delta = b*b - 4*a*c;
+
+            if (delta < 0) {
+                result = "Phương trình vô nghiệm.";
+            } else if (delta === 0) {
+                let x = -b / (2*a);
+                result = "Phương trình có nghiệm kép: x = " + x;
+            } else {
+                let x1 = (-b + Math.sqrt(delta)) / (2*a);
+                let x2 = (-b - Math.sqrt(delta)) / (2*a);
+                result = "Phương trình có 2 nghiệm phân biệt:\n"
+                    + "x₁ = " + x1 + ", x₂ = " + x2;
+            }
+        }
+
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>

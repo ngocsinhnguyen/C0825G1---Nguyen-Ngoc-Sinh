@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<h2>Tính tiền điện</h2>
+<label>Nhập số kWh tiêu thụ: </label>
+<input type="number" id="kwh" placeholder="Nhập số kWh">
+<button onclick="tinhTienDien()">Tính</button>
+
+<p id="ketqua"></p>
+
+<script>
+    function tinhTienDien() {
+        let kwh = parseFloat(document.getElementById("kwh").value);
+        let tien = 0;
+
+        if (kwh <= 0 || isNaN(kwh)) {
+            document.getElementById("ketqua").innerText = "Vui lòng nhập số kWh hợp lệ!";
+            return;
+        }
+/*
+0-50: 1892
+51-100: 1956
+101-200: 2271
+201-300: 2860
+301-400: 3197
+>401: 3302
+*/
+
+        if (kwh <= 50) {
+            tien = kwh * 1892;
+        } else if (kwh <= 100) {
+            tien = 50 * 1892 + (kwh - 50) * 1956;
+        } else if (kwh <= 200) {
+            tien = 50 * 1892 + 50 * 1956 + (kwh - 100) * 2271;
+        } else if (kwh <= 300) {
+            tien = 50 * 1892 + 50 * 1956 + 100 * 2271 + (kwh - 200) * 2860;
+        } else if (kwh <= 400) {
+            tien = 50 * 1892 + 50 * 1956 + 100 * 2271 + 100 * 2860 + (kwh - 300) * 3197;
+        } else {
+            tien = 50 * 1892 + 50 * 1956 + 100 * 2271 + 100 * 2860 + 100 * 3197 + (kwh - 400) * 3302;
+        }
+
+        document.getElementById("ketqua").innerText = "Số tiền điện phải trả: " + tien + " VND";
+    }
+</script>
+</body>
+</html>

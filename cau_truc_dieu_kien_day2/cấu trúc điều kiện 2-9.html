@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tam giác</title>
+</head>
+<body>
+<h2>Kiểm tra 3 số có phải cạnh của tam giác hay không</h2>
+
+<label>Nhập cạnh a: </label>
+<input type="number" id="a" step="0.1" placeholder="Nhập cạnh a"><br><br>
+
+<label>Nhập cạnh b: </label>
+<input type="number" id="b" step="0.1" placeholder="Nhập cạnh b"><br><br>
+
+<label>Nhập cạnh c: </label>
+<input type="number" id="c" step="0.1" placeholder="Nhập cạnh c"><br><br>
+
+<button onclick="checkTriangle()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function checkTriangle() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let c = parseFloat(document.getElementById("c").value);
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            document.getElementById("result").innerText = " Vui lòng nhập đủ ba cạnh!";
+            return;
+        }
+
+        if (a > 0 && b > 0 && c > 0 &&
+            a + b > c && a + c > b && b + c > a) {
+            document.getElementById("result").innerText =
+                " a = " + a + ", b = " + b + ", c = " + c + " là cạnh của một tam giác.";
+        } else {
+            document.getElementById("result").innerText =
+                " Ba số không thỏa mãn điều kiện để là cạnh của tam giác.";
+        }
+    }
+</script>
+</body>
+</html>

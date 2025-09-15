@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tuổi hợp lệ</title>
+</head>
+<body>
+<h2>Kiểm tra số nhập vào có phải là tuổi của một người hay không</h2>
+
+<label>Nhập tuổi: </label>
+<input type="number" id="age" placeholder="Nhập số tuổi"><br><br>
+
+<button onclick="checkAge()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function checkAge() {
+        let age = Number(document.getElementById("age").value);
+
+        if (isNaN(age) || !Number.isInteger(age) ) {
+            document.getElementById("result").innerText = " Vui lòng nhập một số nguyên!";
+            return;
+        }
+
+        if (age > 0 && age < 120) {
+            document.getElementById("result").innerText = age + " là tuổi hợp lệ của một người.";
+        } else {
+            document.getElementById("result").innerText = age + " Không phải là tuổi hợp lệ.";
+        }
+    }
+</script>
+</body>
+</html>
+
+// nhập chữ bị trả về giá trị 0
