@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế thu nhập cá nhân</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        input {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+        #ketqua {
+            margin-top: 15px;
+            font-weight: bold;
+            color: darkblue;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+<h2>Tính thuế thu nhập cá nhân</h2>
+
+<label>Nhập tổng thu nhập ( VND/tháng): </label><br>
+<input type="number" id="tongThuNhap" step="0.1"><br>
+
+<label>Nhập số người phụ thuộc: </label><br>
+<input type="number" id="soNguoiPhuThuoc" step="1" min="0"><br>
+
+<button onclick="tinhThue()">Tính thuế</button>
+
+<p id="ketqua"></p>
+
+<script>
+    function tinhThue() {
+        let tongThuNhap = parseFloat(document.getElementById("tongThuNhap").value);
+        let soNguoiPhuThuoc = parseInt(document.getElementById("soNguoiPhuThuoc").value);
+
+        if (isNaN(tongThuNhap) || tongThuNhap <= 0) {
+            document.getElementById("ketqua").innerText = "Vui lòng nhập thu nhập hợp lệ!";
+            return;
+        }
+
+        if (isNaN(soNguoiPhuThuoc) || soNguoiPhuThuoc < 0) {
+            soNguoiPhuThuoc = 0;
+        }
+
+        // Giảm trừ gia cảnh
+        const giamTruBanThan = 11000000;
+        const giamTruNguoiPhuThuoc = 4400000 * soNguoiPhuThuoc;
+
+        /*
+         Bảo hiểm xã hội (8%)
+         Bảo hiểm y tế (1.5%)
+         Bảo hiểm thất nghiệp (1%)
+         Tổng bảo hiểm = 10.5%
+         */
+        const baoHiem = tongThuNhap * 0.105;
+
+        // Thu nhập tính thuế
+        let thuNhapTinhThue = tongThuNhap - giamTruBanThan - giamTruNguoiPhuThuoc - baoHiem;
+
+        if (thuNhapTinhThue <= 0) {
+            document.getElementById("ketqua").innerText = "Không phải nộp thuế.";
+            return;
+        }
+
+        // Tính thuế theo biểu lũy tiến
+        let tax = 0;
+        if (thuNhapTinhThue <= 5000000) {
+            tax = thuNhapTinhThue * 0.05;
+        } else if (thuNhapTinhThue <= 10000000) {
+            tax = 5000000 * 0.05 + (thuNhapTinhThue - 5000000) * 0.1;
+        } else if (thuNhapTinhThue <= 18000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + (thuNhapTinhThue - 10000000) * 0.15;
+        } else if (thuNhapTinhThue <= 32000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + (thuNhapTinhThue - 18000000) * 0.2;
+        } else if (thuNhapTinhThue <= 52000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + (thuNhapTinhThue - 32000000) * 0.25;
+        } else if (thuNhapTinhThue <= 80000000) {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + (thuNhapTinhThue - 52000000) * 0.3;
+        } else {
+            tax = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + 28000000 * 0.3 + (thuNhapTinhThue - 80000000) * 0.35;
+        }
+
+        document.getElementById("ketqua").innerText =
+            "Tổng thu nhập: " + tongThuNhap.toFixed(2) + " VND\n" +
+            "Bảo hiểm (10.5%): " + baoHiem.toFixed(2) + "  VND\n" +
+            "Thu nhập tính thuế: " + thuNhapTinhThue.toFixed(2) + "  VND\n" +
+            "Thuế TNCN phải nộp: " + tax.toFixed(2) + "  VND";
+    }
+</script>
+</body>
+</html>
