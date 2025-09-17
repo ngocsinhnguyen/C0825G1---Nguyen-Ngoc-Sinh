@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>20 số nguyên tố đầu tiên</title>
+</head>
+<body>
+<h2>20 số nguyên tố đầu tiên</h2>
+<div id="result"></div>
+
+<script>
+    let numbers = 20;
+    let count = 0;
+    let N = 2;
+    let result = "";
+
+    while (count < numbers) {
+        let prime = true;
+
+        for (let i = 2; i <= Math.sqrt(N); i++) {
+            if (N % i === 0) {
+                prime = false;
+                break;
+            }
+        }
+        if (prime) {
+            result += N + " ";
+            count++;
+        }
+        N++;
+    }
+
+    document.getElementById("result").innerText = result;
+</script>
+</body>
+</html>

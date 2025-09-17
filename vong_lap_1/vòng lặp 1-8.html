@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Đoán Số</title>
+</head>
+<body>
+<h2>ĐOÁN SỐ</h2>
+<button onclick="playGame()">Chơi</button>
+
+<script>
+    function playGame() {
+
+        let min = parseInt(prompt("Nhập số nhỏ nhất của khoảng:"));
+        let max = parseInt(prompt("Nhập số lớn nhất của khoảng:"));
+
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            alert("Khoảng nhập không hợp lệ!");
+            return;
+        }
+
+        let secret = Math.floor(Math.random() * (max - min + 1)) + min;
+        while (true) {
+            let guess = prompt("Hãy đoán số (từ " + min + " đến " + max + "):");
+
+            if (guess === null) {
+                alert("Bạn đã thoát trò chơi.");
+                break;
+            }
+            guess = Number(guess);
+            if (isNaN(guess)) {
+                alert("Vui lòng nhập một số!");
+                continue;
+            }
+            if (guess === secret) {
+                alert(" Bạn đã đoán đúng số " + secret);
+                break;
+            } else if (guess > secret) {
+                alert("Số bạn đoán lớn hơn đáp án!");
+            } else {
+                alert("Số bạn đoán nhỏ hơn đáp án!");
+            }
+        }
+    }
+</script>
+</body>
+</html>

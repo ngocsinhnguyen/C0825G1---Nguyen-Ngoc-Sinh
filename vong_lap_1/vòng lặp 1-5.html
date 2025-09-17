@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Số Fibonacci</title>
+</head>
+<body>
+<h2>20 số Fibonacci đầu tiên</h2>
+<script>
+    let n = 20;
+    let a = 0, b = 1;
+    let sum = 0;
+
+    for (let i = 0; i < n; i++) {
+        let c;
+        if (i === 0) {
+            c = a;
+        } else if (i === 1) {
+            c = b;
+        } else {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        document.write(c + "<br>");
+        sum += c;
+    }
+
+    document.write("Tổng của " + n + " số Fibonacci đầu tiên là: "  + sum );
+</script>
+</body>
+</html>
+

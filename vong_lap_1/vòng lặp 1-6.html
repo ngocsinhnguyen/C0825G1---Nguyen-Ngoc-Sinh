@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Tổng</title>
+</head>
+<body>
+<h2>Tổng 30 số chia hết cho 7 đầu tiên</h2>
+<script>
+    let n = 30;
+    let sum = 0;
+
+    document.write("30 đầu tiên số chia hết cho 7 là: <br>");
+
+    for (let i = 1; i <= n; i++) {
+        let num = i * 7;
+        document.write(num + " ");
+        sum += num;
+    }
+
+    document.write("<br><br>");
+    document.write("Tổng của " + n + " số chia hết cho 7 đầu tiên là: " + sum );
+</script>
+</body>
+</html>
