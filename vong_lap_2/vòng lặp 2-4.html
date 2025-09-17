@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>In hình chữ nhật</title>
+
+</head>
+<body>
+<h2>Hình chữ nhật rỗng</h2>
+
+<pre id="output"></pre>
+
+<script>
+    let rows = 7;
+    let cols = 20;
+    let result = "";
+
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            if (i === 0 || i === rows - 1 || j === 0 || j === cols - 1) {
+                result += "* ";
+            } else {
+                result += "  ";
+            }
+        }
+        result += "\n";
+    }
+
+    document.getElementById("output").textContent = result;
+</script>
+</body>
+</html>
