@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất</title>
+</head>
+<body>
+<h3>Kết quả</h3>
+<p id="demo"></p>
+
+<script>
+    let numbers = [12, 7, 45, 23, 89, 34, 56, 3, 17, 61];
+
+    let max = numbers[0];
+    let index = 0;
+
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+            index = i;
+        }
+    }
+
+    document.getElementById("demo").innerHTML =
+        "Phần tử lớn nhất là: " + max + "<br>Vị trí trong mảng: " + index;
+</script>
+</body>
+</html>

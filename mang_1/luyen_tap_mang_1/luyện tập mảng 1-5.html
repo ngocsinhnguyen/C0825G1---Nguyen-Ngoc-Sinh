@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số nguyên âm</title>
+</head>
+<body>
+<h3>Đếm số nguyên âm trong mảng</h3>
+<p id="result"></p>
+
+<script>
+    let n;
+
+
+    do {
+        n = parseInt(prompt("Nhập số phần tử của mảng (số nguyên dương):"));
+    } while (isNaN(n) || n <= 0);
+
+    let arr = [];
+
+
+    for (let i = 0; i < n; i++) {
+        let num;
+        do {
+            num = prompt("Nhập phần tử thứ " + (i + 1) + " (số nguyên):");
+        } while (isNaN(num) || !Number.isInteger(parseFloat(num)));
+
+        arr.push(parseInt(num));
+    }
+
+
+    let countNegative = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            countNegative++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "Mảng đã nhập: " + arr.join(", ") + "<br>Số lượng số nguyên âm trong mảng: " + countNegative;
+</script>
+</body>
+</html>

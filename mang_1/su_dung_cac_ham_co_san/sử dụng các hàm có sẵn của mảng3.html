@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chuyển đổi chuỗi</h1>
+<p id="demo"></p>
+
+<script>
+    inputStr = prompt("Vui lòng nhập chuỗi:");
+    function flipCase(str) {
+        let result = '';
+        for (let i = 0; i < str.length; i++) {
+            const char = str[i];
+
+            if (char === char.toLowerCase() && char !== char.toUpperCase()) {
+                result += char.toUpperCase();
+            }
+            else if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+                result += char.toLowerCase();
+            }
+            else {
+                result += char;
+            }
+        }
+        return result;
+    }
+    document.getElementById("demo").innerText ="Chuỗi ban đầu: '" + inputStr +"' được chuyển thành: '"+ flipCase(inputStr) + "'"
+
+</script>
+</body>
+</html>

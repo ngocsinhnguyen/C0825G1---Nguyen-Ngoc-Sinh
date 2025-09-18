@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm phần tử trong mảng</title>
+</head>
+<body>
+<h3>Tìm phần tử trong mảng</h3>
+<p id="result"></p>
+
+<script>
+    let arr = [];
+
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {
+            num = prompt("Nhập phần tử thứ " + (i + 1) + " (số nguyên):");
+        } while (isNaN(num) || !Number.isInteger(parseFloat(num)));
+
+        arr.push(parseInt(num));
+    }
+
+    let V;
+    do {
+        V = prompt("Nhập số nguyên V cần tìm:");
+    } while (isNaN(V) || !Number.isInteger(parseFloat(V)));
+
+    V = parseInt(V);
+
+    let message;
+    if (arr.includes(V)) {
+        message = V + " is in the array";
+    } else {
+        message = V + " is not in the array";
+    }
+
+    document.getElementById("result").innerHTML =
+        "Mảng đã nhập: " + arr.join(", ") + "<br>" + message;
+</script>
+</body>
+</html>

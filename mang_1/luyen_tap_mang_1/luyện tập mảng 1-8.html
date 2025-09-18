@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sắp xếp mảng giảm dần</title>
+</head>
+<body>
+<h3>Sắp xếp mảng theo thứ tự giảm dần</h3>
+<p id="result"></p>
+
+<script>
+    let arr = [];
+
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {
+            num = prompt("Nhập phần tử thứ " + (i + 1) + " (số nguyên):");
+        } while (isNaN(num) || !Number.isInteger(parseFloat(num)));
+
+        arr.push(parseInt(num));
+    }
+
+    arr.sort((a, b) =>b - a);
+
+    document.getElementById("result").innerHTML =
+        "Mảng sau khi sắp xếp giảm dần: " + arr.join(", ");
+</script>
+</body>
+</html>

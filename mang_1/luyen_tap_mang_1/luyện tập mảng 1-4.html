@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<h3>Đảo ngược mảng số nguyên</h3>
+<p id="result"></p>
+
+<script>
+    let n;
+
+    do {
+        n = parseInt(prompt("Nhập số phần tử của mảng :"));
+    } while (isNaN(n) || n <= 0);
+
+    let arr = [];
+
+    for (let i = 0; i < n; i++) {
+        let num;
+        do {
+            num = prompt("Nhập phần tử thứ " + (i + 1) + ":");
+        } while (isNaN(num) || num.trim() === "");
+
+        arr.push(parseFloat(num));
+    }
+
+    let originalArr = [...arr];
+
+    let reversedArr = arr.toReversed();
+
+    document.getElementById("result").innerHTML =
+        "Mảng ban đầu:" + arr.join(", ") + "<br>" +
+        "Mảng sau khi đảo ngược: " + reversedArr.join(", ");
+</script>
+</body>
+</html>

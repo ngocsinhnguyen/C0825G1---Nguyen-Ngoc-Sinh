@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển Anh - Việt</title>
+</head>
+<body>
+<h2>Từ điển Anh - Việt</h2>
+
+<input type="text" id="inputWord" placeholder="Nhập từ tiếng Anh...">
+<button onclick="translateWord()">Dịch</button>
+
+<p id="result"></p>
+
+<script>
+
+    let eng = ["red", "green", "blue", "yellow", "black", "white", "grey", "purple" ];
+    let vie = ["màu đỏ", "màu xanh lá", "màu xanh dương", "màu vàng", "màu đen", "màu trắng", "màu xám", "màu tím" ];
+
+    function translateWord() {
+        let word = document.getElementById("inputWord").value.toLowerCase();
+        let index = eng.indexOf(word);
+
+        if (index !== -1) {
+            document.getElementById("result").innerText = "Nghĩa tiếng Việt: " + vie[index];
+        } else {
+            document.getElementById("result").innerText = "Không tìm thấy!";
+        }
+    }
+</script>
+</body>
+</html>

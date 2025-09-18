@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số >= 10</title>
+</head>
+<body>
+<h3>Kết quả</h3>
+<p id="demo"></p>
+
+<script>
+    let numbers = [4, 5, 7, 3, 7, 11, 4, 77, 8, 10];
+
+    let count = 0;
+    let result = " ";
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+            count++;
+            result += numbers[i] + " ";
+        }
+    }
+
+    document.getElementById("demo").innerHTML ="Có "+ count + " số >= 10 trong dãy " + "<br>Các số đó lần lượt là: " +  result;
+</script>
+</body>
+</html>

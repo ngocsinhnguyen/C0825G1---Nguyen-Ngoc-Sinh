@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa phần tử trong mảng</title>
+</head>
+<body>
+<h3>Xóa phần tử V trong mảng</h3>
+<p id="result"></p>
+
+<script>
+    let arr = [];
+
+
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {
+            num = prompt("Nhập phần tử thứ " + (i + 1) + " (số nguyên):");
+        } while (isNaN(num) || !Number.isInteger(parseFloat(num)));
+
+        arr.push(parseInt(num));
+    }
+
+
+    let V;
+    do {
+        V = prompt("Nhập số nguyên V cần xóa:");
+    } while (isNaN(V) || !Number.isInteger(parseFloat(V)));
+
+    V = parseInt(V);
+
+
+    let index = arr.indexOf(V);
+
+    if (index !== -1) {
+
+        for (let i = index; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[arr.length - 1] = 0;
+
+        document.getElementById("result").innerHTML =
+            "Mảng sau khi xóa " + V + ": " + arr.join(", ");
+    } else {
+        document.getElementById("result").innerHTML =
+            V + " không có trong mảng. Mảng giữ nguyên: " + arr.join(", ");
+    }
+</script>
+</body>
+</html>
