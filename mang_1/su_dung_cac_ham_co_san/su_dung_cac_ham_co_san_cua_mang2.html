@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chèn dấu - giữa các số chẵn</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    let str;
+
+    do {
+        str = prompt("Nhập vào một chuỗi số:").trim();
+    } while (str === "" || isNaN(str)|| parseInt(str) < 0|| !Number.isInteger(Number(str)));
+
+    let result = "";
+
+    for (let i = 0; i < str.length; i++) {
+        result += str[i];
+
+        if (
+            parseInt(str[i]) % 2 === 0 &&
+            parseInt(str[i + 1]) % 2 === 0
+        ) {
+            result += "-";
+        }
+    }
+
+    document.getElementById("demo").innerText = result;
+</script>
+</body>
+</html>

@@ -9,29 +9,29 @@
 <p id="result"></p>
 
 <script>
-    let n;
+    let arraySize;
 
     do {
-        n = parseInt(prompt("Nhập số phần tử của mảng :"));
-    } while (isNaN(n) || n <= 0);
+        arraySize = Number(prompt("Nhập số phần tử của mảng:"));
+    } while (isNaN(arraySize) || arraySize <= 0 || !Number.isInteger(arraySize));
 
     let arr = [];
 
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < arraySize; i++) {
         let num;
         do {
-            num = prompt("Nhập phần tử thứ " + (i + 1) + ":");
-        } while (isNaN(num) || num.trim() === "");
+            num = Number(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+        } while (isNaN(num) || !Number.isInteger(num));
 
-        arr.push(parseFloat(num));
+        arr.push(num);
     }
 
     let originalArr = [...arr];
 
-    let reversedArr = arr.toReversed();
+    let reversedArr = [...arr].reverse();
 
     document.getElementById("result").innerHTML =
-        "Mảng ban đầu:" + arr.join(", ") + "<br>" +
+        "Mảng ban đầu: " + originalArr.join(", ") + "<br>" +
         "Mảng sau khi đảo ngược: " + reversedArr.join(", ");
 </script>
 </body>
