@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nối mảng</title>
+</head>
+<body>
+<h3>Kết quả nối mảng</h3>
+<p id="result"></p>
+
+<script>
+    function nhapMang(tenMang, soPhanTu) {
+        let arr = [];
+        for (let i = 0; i < soPhanTu; i++) {
+            let num;
+            do {
+                num = parseInt(prompt(`Nhập phần tử thứ ${i + 1} của mảng ${tenMang}:`));
+            } while (isNaN(num));
+            arr.push(num);
+        }
+        return arr;
+    }
+
+    let a = nhapMang("a", 10);
+    let b = nhapMang("b", 10);
+
+    let c = b.concat(a);
+
+
+    document.getElementById("result").innerHTML =
+        "Mảng a: " + a.join(", ") + "<br>" +
+        "Mảng b: " + b.join(", ") + "<br>" +
+        "Mảng c (b nối a): " + c.join(", ");
+</script>
+</body>
+</html>

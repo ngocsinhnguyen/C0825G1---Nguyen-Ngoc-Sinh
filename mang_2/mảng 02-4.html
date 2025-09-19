@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số từ trong chuỗi</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+    let str = prompt("Nhập vào một chuỗi:");
+    let words = str.trim().split(/\s+/);
+    let count = (str.trim() === "") ? 0 : words.length;
+
+    document.getElementById("result").textContent =
+        "Chuỗi đã nhập: \"" + str + "\"\n" +
+        "Số từ trong chuỗi: " + count;
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ký tự số trong mảng</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<pre id="result"></pre>
+
+<script>
+    let n;
+    do {
+        n = parseInt(prompt("Nhập số phần tử của mảng:"));
+    } while (isNaN(n) || n <= 0);
+
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let value = prompt("Nhập phần tử thứ " + (i + 1) + ":");
+        arr.push(value);
+    }
+
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (!isNaN(arr[i]) && arr[i].length === 1 && arr[i] >= '0' && arr[i] <= '9') {
+            count++;
+        }
+    }
+
+    document.getElementById("result").textContent =
+        "Mảng vừa nhập: " + arr.join(", ") + "\n" +
+        "Kích thước mảng: " + arr.length + "\n" +
+        "Số ký tự số (0-9) trong mảng: " + count;
+</script>
+</body>
+</html>

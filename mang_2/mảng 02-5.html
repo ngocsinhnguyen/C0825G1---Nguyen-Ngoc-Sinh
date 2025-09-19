@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập và in mảng</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+    const inputArray = (ten) => {
+        let n;
+        do {
+            n = parseInt(prompt(`Nhập số phần tử của ${ten}:`));
+        } while (isNaN(n) || n <= 0);
+
+        return Array.from({length: n}, (_, i) => prompt(`Nhập phần tử thứ ${i + 1} của ${ten}:`));
+    };
+
+    let arr1 = inputArray("mảng 1");
+    let arr2 = inputArray("mảng 2");
+   function compareArray(arr1, arr2) {
+       if (arr1.length !== arr2.length) {
+           return false;
+       }
+       for (let i = 0; i < arr1.length; i++) {
+           if (arr1[i] !== arr2[i]) {
+               return false;
+           }
+       }
+       return true;
+   }
+
+    let resultText = compareArray(arr1, arr2) ? "Hai mảng giống nhau" : "Hai mảng khác nhau";
+    document.getElementById("result").innerHTML =
+        `Mảng 1: ${arr1.join(", ")} <br>
+         Mảng 2: ${arr2.join(", ")} <br>
+          ${resultText}`;
+
+</script>
+</body>
+</html>
+
+
