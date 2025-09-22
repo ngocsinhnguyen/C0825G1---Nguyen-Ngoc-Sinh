@@ -9,15 +9,15 @@
 <p id="result"></p>
 
 <script>
-    let n;
+    let arraySize;
 
     do {
-        n = parseInt(prompt("Nhập số phần tử của mảng :"));
-    } while (isNaN(n) || n <= 0);
+        arraySize = Number(prompt("Nhập số phần tử của mảng:"));
+    } while (isNaN(arraySize) || arraySize <= 0 || !Number.isInteger(arraySize));
 
     let arr = [];
 
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < arraySize; i++) {
             let str = prompt("Nhập phần tử thứ " + (i + 1) + ":");
 
         arr.push(str);

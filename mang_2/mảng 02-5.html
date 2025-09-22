@@ -10,12 +10,13 @@
 
 <script>
     const inputArray = (ten) => {
-        let n;
-        do {
-            n = parseInt(prompt(`Nhập số phần tử của ${ten}:`));
-        } while (isNaN(n) || n <= 0);
+        let arraySize;
 
-        return Array.from({length: n}, (_, i) => prompt(`Nhập phần tử thứ ${i + 1} của ${ten}:`));
+        do {
+            arraySize = Number(prompt("Nhập số phần tử của mảng:"));
+        } while (isNaN(arraySize) || arraySize <= 0 || !Number.isInteger(arraySize));
+
+        return Array.from({length: arraySize}, (_, i) => prompt(`Nhập phần tử thứ ${i + 1} của ${ten}:`));
     };
 
     let arr1 = inputArray("mảng 1");
