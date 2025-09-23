@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tăng giá trị số</title>
+</head>
+<body>
+<h3>Kết quả sau khi tăng:</h3>
+<p id="result"></p>
+
+<script>
+    function increaseNumber(num) {
+        if (typeof num !== "number" || isNaN(num)) {
+            return "Bạn phải nhập vào một số!";
+        }
+        return num + 1;
+    }
+
+    let input = prompt("Nhập vào một số:");
+    let number = Number(input);
+    let result = increaseNumber(number);
+    document.getElementById("result").innerText = "Kết quả: " + result;
+</script>
+</body>
+</html>

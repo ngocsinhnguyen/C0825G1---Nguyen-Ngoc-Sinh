@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích và chu vi hình tròn</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+    function acreage(r) {
+        return Math.PI * r * r;
+    }
+
+    function perimeter(r) {
+        return 2 * Math.PI * r;
+    }
+
+    function inputNumber() {
+        let input;
+        do {
+            input = prompt("Nhập bán kính hình tròn:");
+            if (input === null) {
+                document.getElementById("result").innerText = "Bạn đã hủy nhập";
+                return;
+            }
+            input = input.trim();
+        } while (input === "" || isNaN(input) || Number(input) <= 0);
+
+        let r = parseFloat(input);
+        let s = acreage(r);
+        let c = perimeter(r);
+
+        document.getElementById("result").innerHTML =
+            "Bán kính: " + r + "<br>" +
+            "Diện tích hình tròn: " + s.toFixed(2) + "<br>" +
+            "Chu vi hình tròn: " + c.toFixed(2);
+    }
+
+    inputNumber();
+</script>
+</body>
+</html>
