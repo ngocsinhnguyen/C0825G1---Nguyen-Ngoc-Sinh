@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+
+    function reverseArray(arr) {
+        return arr.reverse();
+    }
+
+
+    let input = prompt("Nhập các số nguyên, cách nhau bằng dấu phẩy hoặc khoảng trắng:");
+
+    if (input === null || input.trim() === "") {
+        document.getElementById("result").innerText = "Bạn chưa nhập mảng.";
+    } else {
+        let arr = input.split(/[\s,]+/).map(Number);
+
+        if (arr.every(Number.isInteger)) {
+            let reversed = reverseArray(arr);
+            document.getElementById("result").innerText =
+                "Mảng sau khi đảo ngược: [" + reversed.join(", ") + "]";
+        } else {
+            document.getElementById("result").innerText = "Bạn phải nhập toàn số nguyên.";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ký tự số</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+
+    function isDigit(char) {
+
+        if (char.length !== 1) return false;
+        return char >= '0' && char <= '9';
+    }
+
+    let input = prompt("Nhập một ký tự:");
+
+    if (input === null || input.trim() === "") {
+        document.getElementById("result").innerText = "Bạn chưa nhập ký tự.";
+    } else {
+        let result = isDigit(input.trim());
+        document.getElementById("result").innerText =
+            result ? "Ký tự là số." : "Ký tự không phải là số.";
+    }
+</script>
+</body>
+</html>
+

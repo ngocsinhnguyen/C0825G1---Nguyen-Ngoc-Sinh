@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+    function factorial(num) {
+        if (num < 0 || !Number.isInteger(num)) {
+           return  alert( "Chỉ tính giai thừa cho số nguyên không âm");
+        }
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    function inputNumber() {
+        let input;
+        do {
+            input = prompt("Nhập số bất kỳ: ");
+            if (input === null) {
+                document.getElementById("result").innerText = "Bạn đã hủy nhập";
+                return;
+            }
+            input = input.trim();
+        } while (input === "" || isNaN(input));
+
+        if (input !== null && input !== "" && !isNaN(input)) {
+            let num = parseInt(input);
+            let result = factorial(num);
+            document.getElementById("result").innerHTML =
+                "Giai thừa của " + num + " là: " + result;
+        }
+    }
+    inputNumber();
+</script>
+</body>
+</html>

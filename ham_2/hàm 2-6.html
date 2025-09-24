@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+    function isPositiveInteger(num) {
+        return Number.isInteger(num) && num > 0;
+    }
+
+    let input = prompt("Nhập một số:");
+
+    if (input === null || input.trim() === "") {
+        document.getElementById("result").innerText = "Bạn chưa nhập số.";
+    } else {
+        let number = Number(input);
+        let result = isPositiveInteger(number);
+
+        document.getElementById("result").innerText =
+            result ? "Đây là số nguyên dương." : "Không phải số nguyên dương.";
+    }
+</script>
+</body>
+</html>

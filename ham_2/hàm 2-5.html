@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nhỏ nhất trong 3 số</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+
+    function minOfThree(a, b, c) {
+        return Math.min(a, b, c);
+    }
+
+    let a = Number(prompt("Nhập số nguyên thứ nhất:"));
+    let b = Number(prompt("Nhập số nguyên thứ hai:"));
+    let c = Number(prompt("Nhập số nguyên thứ ba:"));
+
+    if (Number.isInteger(a) && Number.isInteger(b) && Number.isInteger(c)) {
+        let minValue = minOfThree(a, b, c);
+        document.getElementById("result").innerText = "Số nhỏ nhất là: " + minValue;
+    } else {
+        document.getElementById("result").innerText = "Bạn phải nhập 3 số nguyên.";
+    }
+</script>
+</body>
+</html>
+

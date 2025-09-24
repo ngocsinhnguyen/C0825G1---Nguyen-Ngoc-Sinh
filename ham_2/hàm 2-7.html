@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ 2 số nguyên</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+
+    function swap(x, y) {
+        return [y, x];
+    }
+    let a = Number(prompt("Nhập số nguyên thứ nhất: "));
+    let b = Number(prompt("Nhập số nguyên thứ hai:  ") )
+
+    if (Number.isInteger(a) && Number.isInteger(b)) {
+        let [newA, newB] = swap(a, b);
+        document.getElementById("result").innerText =
+            "Sau khi đổi chỗ: a = " + newA + ", b = " + newB;
+    } else {
+        document.getElementById("result").innerText = "Bạn phải nhập 2 số nguyên.";
+    }
+</script>
+</body>
+</html>
