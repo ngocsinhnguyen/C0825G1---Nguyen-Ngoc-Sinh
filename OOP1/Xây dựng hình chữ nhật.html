@@ -11,8 +11,8 @@
 <script>
     class Rectangle {
         constructor(width, height) {
-            this.width = width;   // chiều ngang
-            this.height = height; // chiều dọc
+            this.width = width;
+            this.height = height;
         }
         getArea() {
             return this.width * this.height;
@@ -30,16 +30,11 @@
         }
     }
 
-    // Tạo hình chữ nhật
     let rect = new Rectangle(200, 100);
-
-    // Vẽ lần đầu
     rect.draw();
     document.getElementById("result").innerText =
         "Diện tích: " + rect.getArea() +
         ", Chu vi: " + rect.getPerimeter();
-
-    // Sau 2 giây thay đổi kích thước
     rect.width = 300;
     rect.height = 150;
 
