@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="400" style="border:1px solid black"></canvas>
+<p id="result"></p>
+
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;   // chiều ngang
+            this.height = height; // chiều dọc
+        }
+        getArea() {
+            return this.width * this.height;
+        }
+        getPerimeter() {
+            return 2 * (this.width + this.height);
+        }
+        draw() {
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "lightblue";
+            ctx.fillRect(50, 50, this.width, this.height);
+            ctx.strokeRect(50, 50, this.width, this.height);
+        }
+    }
+
+    // Tạo hình chữ nhật
+    let rect = new Rectangle(200, 100);
+
+    // Vẽ lần đầu
+    rect.draw();
+    document.getElementById("result").innerText =
+        "Diện tích: " + rect.getArea() +
+        ", Chu vi: " + rect.getPerimeter();
+
+    // Sau 2 giây thay đổi kích thước
+    rect.width = 300;
+    rect.height = 150;
+
+    setTimeout(() => {
+        rect.draw();
+        document.getElementById("result").innerText =
+            "Diện tích: " + rect.getArea() +
+            ", Chu vi: " + rect.getPerimeter();
+    }, 2000);
+</script>
+</body>
+</html>
