@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Công tắc và bóng đèn</title>
+</head>
+<body>
+<h3>Kết quả:</h3>
+<p id="result"></p>
+
+<script>
+
+    class ElectricLamp {
+        constructor() {
+            this.status = false;
+        }
+
+        turnOn() {
+            this.status = true;
+            console.log("💡 Bóng đèn sáng");
+        }
+
+        turnOff() {
+            this.status = false;
+            console.log("💡 Bóng đèn tắt");
+        }
+
+        getStatus() {
+            return this.status ? "sáng" : "tắt";
+        }
+    }
+
+    class SwitchButton {
+        constructor() {
+            this.status = false;
+            this.lamp = null;
+        }
+
+        connectToLamp(lamp) {
+            this.lamp = lamp;
+        }
+
+        switchOn() {
+            if (this.lamp) {
+                this.status = true;
+                this.lamp.turnOn();
+            }
+        }
+
+        switchOff() {
+            if (this.lamp) {
+                this.status = false;
+                this.lamp.turnOff();
+            }
+        }
+    }
+
+    let lamp = new ElectricLamp();
+    let button = new SwitchButton();
+
+    button.connectToLamp(lamp);
+
+    let output = "";
+    for (let i = 1; i <= 10; i++) {
+        if (i % 2 === 1) {
+            button.switchOn();
+        } else {
+            button.switchOff();
+        }
+        output += `Lần ${i}: Bóng đèn ${lamp.getStatus()} <br>`;
+    }
+
+    document.getElementById("result").innerHTML = output;
+
+</script>
+</body>
+</html>
